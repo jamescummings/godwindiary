@@ -1,0 +1,79 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>About the Leverhulme Trust</title>
+                <principal>Mark Philp</principal>
+                <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Published by the Godwin Diary Project, University of Oxford</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2010-09-09">
+                <persName>Dr James Cummings</persName> created this file.</change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text>
+        <body>
+
+            <div>
+                <head>History</head>
+                <p>The Victorian businessman and entrepreneur, William Hesketh Lever first brought
+                    his exceptional creativity and energy to the manufacture and marketing of
+                    Sunlight Soap which only a decade after its launch was being sold in 134
+                    countries. </p>
+                <p>Lever extended his business activities in ways that both served and profited from
+                    the rapid rise of a mass market for basic consumer products. From the earliest
+                    days, he was also a philanthropist, supporting a variety of educational,
+                    religious, civic, community, and medical causes. His achievements were
+                    recognized in 1922 when the title of Lord Leverhulme of the Western Isles was
+                    conferred upon him. </p>
+                <p>On his death in 1925, Lord Leverhulme left a proportion of his interest in the
+                    company he had founded, Lever Brothers, in trust for specific beneficiaries: to
+                    include first certain trade charities and secondly the provision of
+                    "scholarships for the purposes of research and education". The Leverhulme Trust
+                    was established. In the succeeding years, Lever Brothers became a cornerstone of
+                    Unilever, one of the major multinational companies, created in 1930 by the
+                    merger of Lever Brothers with the Van den Berghs margarine company of the
+                    Netherlands. The Leverhulme Trust's shareholding thus became part of Unilever
+                    plc. November 1983 saw an evolution in the arrangements for the two charitable
+                    objectives. Subsequently, the Leverhulme Trust has been able to give
+                    concentrated attention to research and education. </p>
+                <p>One special element in Viscount Leverhulme's legacy is the request that the
+                    Trustees all be drawn from the highest levels within Lever Brothers Ltd or now
+                    from its descendant Unilever plc. The Trust is therefore led by a group of
+                    colleagues with wide but self-consistent experience, with a high level of mutual
+                    understanding and respect built up over many years, and with a full recognition
+                    of the special qualities and achievement of the founder. The resulting culture
+                    for decision-making is free from disciplinary special interest but fully alert
+                    to the wide-ranging impact which research and education must make in modern
+                    life. </p>
+                <p>Throughout its history, the Trust has combined the direct initiatives of the
+                    Trustees made in the light of specialist peer review advice together with a
+                    portfolio of awards made by a Research Awards Advisory Committee, itself
+                    comprising eminent research colleagues drawn predominantly from the academic
+                    world. The tradition continues to the present day. </p>
+            </div>
+            <div>
+                <head>Today</head>
+                <p>The Trust, established at the wish of William Hesketh Lever, the first Viscount
+                    Leverhulme, makes awards for the support of research and education. The Trust
+                    emphasises individuals and encompasses all subject areas. </p>
+                <p>The Trustees place special weight on: <list>
+                        <item>the originality of the projects put to them; </item>
+                        <item>the significance of the proposed work; </item>
+                        <item>the ability to judge and take appropriate risk in the project; </item>
+                        <item>the removal of barriers between traditional disciplines. </item>
+                    </list></p>
+            </div>
+
+        </body>
+    </text>
+</TEI>

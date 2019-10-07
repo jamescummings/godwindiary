@@ -1,0 +1,39 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Example Diary Entry</title>
+                <principal>Mark Philp</principal>
+                <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Published by the Godwin Diary Project, University of Oxford</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2010-09-09">
+                <persName>Dr James Cummings</persName> created this file.</change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text>
+        <body>
+
+<div>
+    <head>29 April 1806</head>
+    
+    <p rend="bold">
+        29. Tu. Raleigh, çala. GMC tea: tea Tuffin’s w. Wordsworth, R Johnson, Rickman, Southey, Parsons. Melville’s Trial: ends May 17: acquitted, 12 June.
+    </p>
+    <p>Godwin typically begins a diary entry by recording the extent of his writing or his reading. In this example, he is reading Walter Raleigh but it is difficult to identify sections of Raleigh because he reads it ‘here and there’ (ça et la), and fails to specify the exact text he is reading. Tuffin is not yet identified (and Godwin’s handwriting does not make the name easy to decipher) and we need to look for other sources to verify a meeting at which Wordsworth and Southey might have met with Paine’s old friend (and later biographer) Clio Rickman. And Parsons and R. Johnson are also not currently identified. Moreover, Melville’s trial (impeached for corruption) is one of a series of public events recorded in the diary, suggesting its considerable salience to circles for whom Melville (formerly Henry Dundas) was closely tied to Pitt and his campaign against reformers in the 1790s.
+        </p>
+</div>
+    
+
+        </body>
+    </text>
+</TEI>

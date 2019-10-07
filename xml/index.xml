@@ -1,0 +1,28 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI
+   xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title rend="center">William Godwin's Diary</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Published by the William Godwin's Diary project, UIniversity of Oxford</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>William Godwin's Diary</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body rend="splashPage">
+<div rend="splashPage">
+
+      <p rend="center">
+        <ref target="/index2.html"><figure rend="splashPage"><graphic rend="splashPage" url="/images/godwin-logo-med-white.png"/><figDesc>Click Image To Enter Site!</figDesc></figure></ref>
+      </p>
+        
+</div>
+    </body>
+  </text>
+</TEI>

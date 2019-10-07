@@ -1,0 +1,36 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Acknowledgements</title>
+                <principal>Mark Philp</principal>
+                <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Published by the Godwin Diaries Project, University of Oxford</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2010-09-09">
+                <persName>Dr James Cummings</persName> created this file.</change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text>
+        <body>
+
+            <p>
+The project would like to acknowledge the work of not only the <ref target="/team.html">project team</ref> but also:
+<list type="unordered">
+<item>To be announced</item>
+<item>To be announced</item>
+<item>To be announced</item>
+</list>
+</p>
+        </body>
+    </text>
+</TEI>

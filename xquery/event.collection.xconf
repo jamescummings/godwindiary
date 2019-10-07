@@ -1,0 +1,52 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
+    <index xmlns:tei="http://www.tei-c.org/ns/1.0">
+        <fulltext default="all" attributes="true" alphanum="true">
+            <create qname="tei:event"/>
+            <create qname="tei:person"/>
+            <create qname="tei:persName"/>
+            <create qname="tei:bibl"/>
+        </fulltext>
+        <create qname="tei:event" type="xs:string"/>
+        <create qname="tei:ab" type="xs:string"/>
+        <create qname="tei:note" type="xs:string"/>
+        <create qname="tei:persName" type="xs:string"/>
+        <create qname="tei:forename" type="xs:string"/>
+        <create qname="tei:surname" type="xs:string"/>
+        <create qname="tei:roleName" type="xs:string"/>
+        <create qname="tei:addName" type="xs:string"/>
+        <create qname="tei:ref" type="xs:string"/>
+        <create qname="tei:bibl" type="xs:string"/>
+        <create qname="tei:listBibl" type="xs:string"/>
+        <create qname="tei:p" type="xs:string"/>
+        <create qname="tei:title" type="xs:string"/>
+        <create qname="tei:seg" type="xs:string"/>
+        <create qname="tei:date" type="xs:string"/>
+        <create qname="tei:placeName" type="xs:string"/>
+        <create qname="tei:birth" type="xs:string"/>
+        <create qname="tei:death" type="xs:string"/>
+        <create qname="tei:occupation" type="xs:string"/>
+        <create qname="tei:pb" type="xs:string"/>
+        <create qname="tei:persName" type="xs:string"/>
+        <create qname="@ref" type="xs:string"/>
+        <create qname="@type" type="xs:string"/>
+        <create qname="@n" type="xs:string"/>
+        <create qname="@sex" type="xs:string"/>
+        <create qname="@type" type="xs:string"/>
+        <create qname="@key" type="xs:string"/>
+        <create qname="@xml:id" type="xs:string"/>
+        <create qname="@when" type="xs:string"/>
+        <create qname="@notBefore" type="xs:string"/>
+        <create qname="@notAfter" type="xs:string"/>
+        <lucene>
+            <analyzer class="org.apache.lucene.analysis.standard.StandardAnalyzer"/>
+            <analyzer id="ws" class="org.apache.lucene.analysis.WhitespaceAnalyzer"/>
+            <text qname="tei:ab" />
+            <text qname="tei:event" />
+            <text qname="tei:person" />
+            <text qname="tei:seg"/>
+            <text qname="tei:persName"/>
+            <text qname="tei:bibl"/>
+            <text qname="tei:note"/>
+        </lucene>
+    </index>
+</collection>

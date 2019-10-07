@@ -1,0 +1,36 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI
+   xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>About the Project</title>
+                <principal>Mark Philp</principal>
+                <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Published by the William Godwin Diary Project, University of Oxford</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2010-09-09">
+                <persName>Dr James Cummings</persName> created this file.</change>
+        </revisionDesc>
+    </teiHeader>
+    
+  <text>
+    <body>
+      
+<p>      William Godwin’s diary is the centrepiece of the Abinger Collection, Bodleian Library and is its most frequently consulted source.  Godwin kept his diary assiduously from 1788 until his death in 1836.  The diary is a resource of immense importance to researchers of history, politics, literature, and women’s studies.  In its pages one can decipher a remarkably detailed map of radical intellectual and political life in the turbulent period of the 1790s, as well as reconstruct publishing relations, conversational coteries, and theatrical production in the first third of the nineteenth century.  One can also trace the developing relationships of possibly the most important family in British literature, Godwin’s own, and its links with his own intellectual and political development.  Many of the most important figures in British cultural history feature in its pages including Samuel Taylor Coleridge, Richard Brinsley Sheridan, Mary Wollstonecraft, William Hazlitt, Elizabeth Inchbald, Charles Lamb, Mary Robinson, and Thomas Holcroft, amongst many others.
+</p>      
+<p>      The Leverhulme Foundation has awarded the University of Oxford a Research Project Grant to edit the diary of William Godwin.  The project will be directed by Dr Mark Philp (Department of Politics and International Relations, Oxford).
+</p>      
+<p>      The key objectives of the project are: to undertake systematic research on the diary to identify those referred to in it and through this to construct a picture of London’s literary and extra-parliamentary political life between 1788 and 1836; to develop a full scholarly apparatus of indexing, annotation, and cross-reference to enhance the intelligibility of the material and allow its systematic searching; to augment the resource further by linking it directly to related electronic material; and, to provide a reliable, searchable, online transcription of the text, alongside a scanned version of the original manuscript.
+</p>      
+<p>      In addition, each individual mentioned in the diary will have a biographical entry that identifies the person (where possible), provides biographical details and cross references to biographical resources, sketches the profile of the individual’s contacts with Godwin, and also identifies significant patterns of interaction with others in the diary. 
+</p>    </body>
+  </text>
+</TEI>

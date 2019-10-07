@@ -1,0 +1,17 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0" >
+    <index >
+        <fulltext default="all" attributes="true" alphanum="true">
+            <create qname="diary"/>
+         </fulltext>
+        <create qname="diary" type="xs:string"/>
+        <create qname="year" type="xs:string"/>
+        <create qname="pb" type="xs:string"/>
+        <create qname="month" type="xs:string"/>
+        <create qname="day" type="xs:string"/>
+        <create qname="@n" type="xs:string"/>
+        <create qname="@type" type="xs:string"/>
+        <create qname="@n" type="xs:string"/>
+        <create qname="@updated" type="xs:string"/>
+        <create qname="@xml:id" type="xs:string"/>
+      </index>
+</collection>

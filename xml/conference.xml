@@ -1,0 +1,99 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Conference</title>
+                <principal>Mark Philp</principal>
+                <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Published by the Godwin Diary Project, University of Oxford</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2010-09-09">
+                <persName>Dr James Cummings</persName> created this file.</change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text>
+        <body>
+
+            <head>The Godwin Diary: Reconstructing London's Culture 1788-1836</head>
+
+            <p><ref
+                    target="http://godwindiary.politics.ox.ac.uk/conference/Con_Inv_Call_for_Paper_website.pdf"
+                    >Full conference details</ref>
+                <ref target="http://www.politics.ox.ac.uk/web/help/help_pdf.asp"><graphic
+                        url="/images/pdficon_small.gif" /></ref>
+            </p>
+            <p><ref target="http://godwindiary.politics.ox.ac.uk/conference/programme.pdf"
+                    >Programme</ref>
+                <ref target="http://www.politics.ox.ac.uk/web/help/help_pdf.asp"><graphic
+                        url="/images/pdficon_small.gif"/></ref></p>
+            <p rend="bold italic"> Registration is now closed </p>
+            <p>On 23-24 July 2010 the Leverhulme sponsored research project responsible for editing
+                the diary of William Godwin held a two-day conference to introduce scholars to
+                the new resource and to explore how that resource provides a distinctive light on
+                our understanding of late eighteenth and early nineteenth century social and
+                political culture. The conference will take place at the Department of Politics
+                &amp; International Relations, Manor Road, Oxford. The Godwin Diary conference will
+                mark the culmination of three years' effort to edit the diary and publish a digital
+                and fully searchable edition. Accompanying the searchable text will be a complete
+                scan of the original diary </p>
+            <p>The conference organizers have invited a number of speakers but would also welcome
+                proposals for paper from those interested in exploring the light that the resource
+                can shed on their own research interests. Those speaking include: John Barrell,
+                Luisa Calé, Julie Carlson, Greg Claeys, Pamela Clemit, Beth Lau, Jon Mee, Jane
+                Moody, and Philip Schofield. </p>
+            <p>We should state at the outset that the conference format, and the nature of the
+                papers presented, is a little unusual. The objective of the conference is to launch
+                the diary website and to illustrate its potential as a research tool for the study
+                of the period 1788- 1836. It is not, therefore, a 'Godwin conference' but is
+                concerned with how the diary illuminates various aspects of London's cultural and
+                material worlds with particular emphasis on the manifold networks of relationships
+                that Godwin mapped in his diary. Accordingly, papers should focus on the
+                contribution Godwin's Diary might make to some of their own research interests. To
+                enable people to do this the Godwin team will provide speakers with access to the
+                Diary in advance of the conference. Moreover, rather than expecting people to write
+                extensive papers on their research areas we are asking for short contributions of
+                just 10 minutes. Our belief is that this will prove an attractive format that will
+                allow a very wide range of issues to be discussed during the two days and will give
+                some indication of the immense richness of the resource as a research tool. Our hope
+                is that scholars will find attractive the idea of brief papers about particular
+                topics that link the Diary to their research interests and indicate its
+                contribution. The Bodleian has agreed that a collection of the papers will be
+                published in a special issue of the Bodleian Library Record. </p>
+            <p>We plan to have sessions on publishing culture, theatre, lives and deaths,
+                sociability, visual culture, and radicalism. There will also be a panel on the
+                practice of diarykeeping. We will offer a hands-on session navigating the diary and
+                exploiting its search mechanisms. The conference will also, in conjunction with the
+                Bodleian Library, host an exhibition of the diary and other key manuscripts from the
+                Godwin-Shelley archive (Abinger Collection). It is also planned to stage the world
+                premiere of Godwin's MS tragedy, St Dunstan (1790)! </p>
+            <p>Those attending the conference will get access to the diary before its full launch in
+                Autumn 2010 as we hope to improve the resource after feedback from users. An outline
+                plan of the conference and its different sessions is appended below, along with
+                suggested topics (other topics are welcome). Those interested in contributing are
+                asked to indicate the panel which they believe is most appropriate and to provide a
+                brief paragraph outlining their research interest and what they would hope to
+                discuss in their paper (no more than 300 words). This should be sent to the project
+                e-mail address (below) by 1 October 2009. </p>
+            <p><ref
+                    target="http://godwindiary.politics.ox.ac.uk/conference/Con_Inv_Call_for_Paper_website.pdf"
+                    >Full conference details</ref>
+                <ref target="http://www.politics.ox.ac.uk/web/help/help_pdf.asp"><graphic
+                        url="/images/pdficon_small.gif"/></ref>
+            </p>
+            <p> Contact: <ref target="mailto:godwin.diary@politics.ox.ac.uk"
+                    >godwin.diary@politics.ox.ac.uk</ref>
+            </p>
+
+
+        </body>
+    </text>
+</TEI>

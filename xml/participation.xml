@@ -1,0 +1,77 @@
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Project Participation</title>
+                <principal>Mark Philp</principal>
+                <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Published by the Godwin Diary Project, University of Oxford</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2010-09-09">
+                <persName>Dr James Cummings</persName> created this file.</change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text>
+        <body>
+
+            <p>Editing the diary to appropriate scholarly standards so as to realize its unique
+                potential as a research resource for all those working on the literature, history,
+                and politics of the period is a considerable labour. The diary contains thousands of
+                names, some of which are immediately recognizable, some of which are much more
+                difficult to identify. For example, by the end of the 1790s Godwin was seeing
+                something in the order of 140 different people a month (about half of whom were new
+                or relatively new contacts). This figure probably does represent a peak, and there
+                are certainly troughs when Godwin was working intensively on major projects, but
+                throughout his long life, his remarkable sociability ensured he remained connected
+                to an astonishingly wide range of people from London’s literary, artistic,
+                scientific, political and cultural circles. </p>
+            <p>Godwin’s participation in a wide range of different social and cultural networks
+                suggests that editing his diary is a task that is particularly suited to
+                collaborative consultation. We hope that by inviting scholars from across the
+                disciplinary spectrum we will be able to identify the more obscure entries and that
+                the unique perspective into Georgian London over a period of nearly fifty years the
+                diary affords will be as penetrating as possible. The creation of such a scholarly
+                network is essential to the project’s success. </p>
+            <p>Our intention is to have an occasional newsletter from January 2008 in which we will
+                report on progress and raise problems as we encounter them. Contributors will be
+                asked to respond to those queries which pertain to their particular area of
+                expertise. We anticipate that the queries will largely be concerned with individuals
+                whose identity is uncertain and we will provide information that we hope will help
+                an expert provide a more certain identification. Such information might include: the
+                number of times this person appears in the diary; the dates of those appearances;
+                how the name is denoted (sometimes Godwin varies the way he records individuals due
+                to developing degrees of intimacy); the location of the meetings between Godwin and
+                the individual (private residence, theatre); and the other people present at the
+                meeting. From this fragmentary information, it is hoped that experts in other fields
+                of interest and periods might be able to suggest possible identifications. See <ref
+                    target="/example.html">this
+                example diary entry</ref>. </p>
+            <p>The Diary project is working closely with a separately funded project, the OUP
+                edition of Godwin's letters, edited by Pamela Clemit (Durham University). This is a
+                long-term project which will be published in six volumes. For the duration of the
+                Diary project we will be asking people for help in identifying names and other
+                elements in the Diary. Similar problems will arise with the Letters and in many
+                cases these will overlap with problems for the Diary. We are hoping that those who
+                wish to subscribe to the Diary network will also be willing to be consulted on
+                aspects of the Letters and we would roll queries relating to the Letters into the
+                newsletter. </p>
+            <p>In all cases, those providing information will be thanked formally in the
+                introduction to the website and/or the relevant volume of the edition, as
+                appropriate. They will also be invited to attend a launch conference for the Diary
+                in Oxford in 2010-11. It is hoped that the availability of both the Diary and the
+                Letters will stimulate further research into Godwin and his circle by other
+                scholars. </p>
+
+
+        </body>
+    </text>
+</TEI>

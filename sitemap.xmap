@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+  
+  <!-- =========================== Components ================================ -->
+  
+  <map:components>
+    <map:generators default="file">
+      <map:generator name="xquery" logger="sitemap.generator.xquery"
+		     src="org.exist.cocoon.XQueryGenerator"/>
+    </map:generators>
+    <map:readers default="resource"/>
+    <map:serializers default="html"/>
+    <map:selectors default="browser"/>
+    <map:matchers default="wildcard"/>
+    <map:transformers default="xslt">
+      <map:transformer name="xinclude"
+        src="org.apache.cocoon.transformation.XIncludeTransformer"/>
+      </map:transformers>
+    <map:selectors default="request">
+      <map:selector name="request"
+		    src="org.apache.cocoon.selection.RequestSelector"/>
+    </map:selectors>
+
+  </map:components>
+  
+  <!-- =========================== Pipelines
+       ================================= -->
+  
+  <map:pipelines>		
+
+<!-- CACHING PIPELINE -->
+
+<map:pipeline type="caching">
+  <map:parameter name="cache-expires" value="access plus 2 days"/>
+
+<!--<map:match pattern="HOL01.js">
+<map:generate src="cocoon:/get-list.xq"/>
+<map:transform src="xslt/lists2json.xsl"/>
+<map:serialize encoding="UTF-8" type="text"/>
+</map:match>
+-->
+
+      <map:match pattern="dataTables/js/**.js">
+	      <map:read mime-type="text/javascript" src="style/js/dataTables-1.6/media/js/{1}.js"/>
+      </map:match>
+
+  
+<map:match pattern="projectsite/**.html">
+    <map:generate src="/home/godwin/svn/{1}.xml"/>
+    <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+</map:match>
+
+<map:match pattern="projectsite/**.xml">
+    <map:generate src="/home/godwin/svn/{1}.xml"/>
+    <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+</map:match>
+
+<map:match pattern="mmbrowser/__history.html">
+ <map:read mime-type="text/html" src="xml/__history.html"/>
+</map:match>
+  
+<map:match pattern="mmbrowser/__history__.html">
+ <map:read mime-type="text/html" src="xml/__history.html"/>
+</map:match>
+  
+<map:match pattern="mmbrowser/__history__.js">
+ <map:read mime-type="text/html" src="xml/__history.html"/>
+</map:match>
+  
+  
+  <map:match pattern="mmbrowser/*.js">
+    <map:generate src="cocoon:/get-list.xq?id={1}"/>
+    <map:transform src="xslt/lists2json.xsl"/>
+    <map:serialize encoding="UTF-8" type="text"/>
+  </map:match>
+
+  <map:match pattern="mmbrowser/*.html">
+    <map:generate src="xml/stub.xml"/>
+    <map:transform src="xslt/generateExhibit.xsl">
+      <map:parameter name="use-request-parameters" value="true"/>
+      <map:parameter name="pid" value="{1}"/>
+    </map:transform>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="stats.html">
+    <map:generate src="cocoon:/get-stats.xq"/>
+    <map:transform src="xslt/list2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="stats/*.html">
+	  <map:generate src="cocoon:/get-itemStats.xq?type={1}"/>
+   <map:transform src="xslt/basicStats2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/> 
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="stats/*/*.html">
+<map:generate src="cocoon:/get-itemMoreStats.xq?type={1}&amp;subtype={2}"/>
+<map:transform src="xslt/basicStatsMore2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>   
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="search.html">
+	  <map:generate src="cocoon:/search.xq"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="search.html*">
+	  <map:generate src="cocoon:/search.xq{1}"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+
+  <map:match pattern="people/index.html">
+	  <!-- <map:generate src="cocoon:/get-listPersonTable.xq"/> -->
+	  <map:generate src="xml/static/peopleTable.xml"/> 
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+
+  <map:match pattern="people/">
+	  <!-- <map:generate src="cocoon:/get-listPersonTable.xq"/> -->
+	  <map:generate src="xml/static/peopleTable.xml"/> 
+	  <map:transform src="xslt/table2HTML.xsl"/>
+	  <map:transform src="xslt/add-menu.xsl"/>
+	  <map:serialize encoding="UTF-8" type="xhtml"/>
+    </map:match>
+
+
+<map:match pattern="people">
+	  <!-- <map:generate src="cocoon:/get-listPersonTable.xq"/> -->
+	  <map:generate src="xml/static/peopleTable.xml"/>
+	    <map:transform src="xslt/table2HTML.xsl"/>
+	    <map:transform src="xslt/add-menu.xsl"/>
+	    <map:serialize encoding="UTF-8" type="xhtml"/>
+</map:match>
+
+
+  <map:match pattern="people/unidentified/index.html">
+	  <!--<map:generate src="xml/unidentified.html"/>-->
+<map:generate src="xml/unidentified.html"/>
+<!--<map:transform src="xslt/table2HTML.xsl"/>-->
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="people/unidentified/">
+	  <!--<map:generate src="xml/unidentified.html"/>-->
+<map:generate src="xml/unidentified.html"/>
+<!--<map:transform src="xslt/table2HTML.xsl"/>-->
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+  
+  <map:match pattern="people/unidentified/">
+<!--<map:generate src="xml/unidentified.html"/>-->
+<map:generate src="xml/static/unidentified.xml"/>
+<map:transform src="xslt/table2HTML.xsl"/>
+<map:transform src="xslt/add-menu.xsl"/>
+<map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+  
+
+  <map:match pattern="people/index.xml">
+    <map:generate src="cocoon:/get-listPersonTable.xq"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+
+
+ <map:match pattern="people/unidentified/*.html">
+    <map:generate src="cocoon:/get-unidentified.xq?id={1}"/>
+    <map:transform src="xslt/unidentified2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="people/GOD00.html">
+    <map:generate src="cocoon:/get-people.xq?id=GOD00"/>
+    <map:transform src="xslt/GOD002HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+  
+
+ <map:match pattern="people/*.html">
+    <map:generate src="cocoon:/get-people.xq?id={1}"/>
+    <map:transform src="xslt/person2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+ <map:match pattern="people/*.html*">
+    <map:generate src="cocoon:/get-people.xq?id={1}"/>
+    <map:transform src="xslt/person2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="plays/*.html">
+    <map:generate src="cocoon:/get-play.xq?id={1}"/>
+    <map:transform src="xslt/play2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+  <map:match pattern="plays/*.xml">
+    <map:generate src="cocoon:/get-play.xq?id={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+
+  <map:match pattern="plays/">
+    <map:redirect-to uri="cocoon:/events/index-theat.html"/>
+  </map:match>
+  
+  <map:match pattern="plays">
+    <map:redirect-to uri="cocoon:/events/index-theat.html"/>
+  </map:match>
+
+  <map:match pattern="plays/index.html">
+    <map:redirect-to uri="cocoon:/events/index-theat.html"/>
+  </map:match>
+  
+
+  <map:match pattern="works/*.html">
+    <map:generate src="cocoon:/get-works.xq?id={1}"/>
+    <map:transform src="xslt/work2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+
+  <map:match pattern="works/*.xml">
+    <map:generate src="cocoon:/get-works.xq?id={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+   
+  <map:match pattern="venues/">
+	  <!--<map:generate src="cocoon:/get-venueTable.xq"/> -->
+	  <map:generate src="xml/static/venuesTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="venues/index.html">
+	  <!--<map:generate src="cocoon:/get-venueTable.xq"/> -->
+	  <map:generate src="xml/static/venuesTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  
+  <map:match pattern="venues">
+	  <!--<map:generate src="cocoon:/get-venueTable.xq"/> -->
+	  <map:generate src="xml/static/venuesTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+    
+  <map:match pattern="dramatists/index.html">
+    <!--<map:generate src="cocoon:/get-authorTable.xq"/>-->
+    <map:generate src="xml/static/dramatistsTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  
+  <map:match pattern="dramatists/">
+    <!--<map:generate src="cocoon:/get-authorTable.xq"/>-->
+    <map:generate src="xml/static/dramatistsTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  
+  <map:match pattern="dramatists">
+    <!--<map:generate src="cocoon:/get-authorTable.xq"/>-->
+    <map:generate src="xml/static/dramatistsTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  
+  <map:match pattern="dramatists/*.html">
+    <map:generate src="cocoon:/get-authors.xq?id={1}"/>
+    <map:transform src="xslt/author2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+  
+  <map:match pattern="dramatists/*.xml">
+    <map:generate src="cocoon:/get-authors.xq?id={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  
+  <!-- 
+  <map:match pattern="authors/">
+    <map:generate src="cocoon:/get-authorTable.xq"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  
+  <map:match pattern="authors">
+    <map:generate src="cocoon:/get-authorTable.xq"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+
+ <map:match pattern="authors/*.html">
+    <map:generate src="cocoon:/get-authors.xq?id={1}"/>
+    <map:transform src="xslt/author2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="html"/>
+  </map:match>
+
+<map:match pattern="authors/*.xml">
+    <map:generate src="cocoon:/get-authors.xq?id={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  -->
+  
+  <map:match pattern="people/*.xml">
+    <map:generate src="cocoon:/get-people.xq?id={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  
+  <map:match pattern="bad-dDay">
+    <map:generate src="cocoon:/get-dDayWithoutDate.xq"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="diary/">
+	  <!--<map:generate src="cocoon:/get-diaryMap.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/> -->
+ <map:generate src="xml/diaryIndex.xml"/>
+    <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="freeSearch.html">
+ <map:generate src="xml/search.xml"/>
+    <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="diary">
+	  <!--<map:generate src="cocoon:/get-diaryMap.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/> -->
+ <map:generate src="xml/diaryIndex.xml"/>
+    <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="diary/index.html">
+	  <!--<map:generate src="cocoon:/get-diaryMap.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/> -->
+ <map:generate src="xml/diaryIndex.xml"/>
+    <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+
+  <!--
+  <map:match pattern="diary">
+    <map:generate src="cocoon:/get-diaryMap.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="diary/">
+    <map:generate src="cocoon:/get-diaryMap.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="diary/index.html">
+    <map:generate src="cocoon:/get-diaryMap.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="diary/old-index.html">
+    <map:generate src="cocoon:/get-diaryList.xq"/>
+    <map:transform src="xslt/diaryYears2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  -->
+
+<map:match pattern="diary/1796list.xml">
+<map:generate src="cocoon:/get-diary-xmlbit.xq?date=list1796"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+</map:match>
+
+
+<map:match pattern="diary/1796list.html">
+<map:generate src="xml/1796list.xml"/>
+    <map:transform src="xslt/diary.xsl">
+      <map:parameter name="use-request-parameters" value="true"/>
+      <map:parameter name="date" value="1796 List"/>
+    </map:transform>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+</map:match>
+  
+  <map:match pattern="diary/*.html">
+    <map:generate src="cocoon:/get-diary-bit.xq?date={1}"/>
+    <map:transform src="xslt/diary.xsl">
+      <map:parameter name="use-request-parameters" value="true"/>
+      <map:parameter name="date" value="{1}"/>
+    </map:transform>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="diary/*-*-*.xml">
+	  <map:generate src="cocoon:/get-diary-xmlbit.xq?date={1}-{2}-{3}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  
+  <map:match pattern="diary/*-*.xml">
+	  <map:generate src="cocoon:/get-diary-xmlbit.xq?date={1}-{2}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  
+  <map:match pattern="diary/*.xml">
+	  <map:generate src="cocoon:/get-diary-year.xq?date={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  
+  
+  <map:match pattern="bibl">
+    <map:redirect-to uri="cocoon:/bibl/index.html"/>
+  </map:match>
+  
+    <map:match pattern="bibl/">
+    <map:redirect-to uri="cocoon:/bibl/index.html"/>
+  </map:match>
+  
+  <map:match pattern="bibl/index.html">
+    <map:generate src="xml/biblTable.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+  
+  <map:match pattern="events-old/index-*.html">
+    <map:generate src="cocoon:/get-eventListing.xq?type={1}"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="nav/*.html">
+    <map:generate src="xml/nav.xml"/>
+    <map:transform src="xslt/nav2HTML.xsl">
+      <map:parameter name="use-request-parameters" value="true"/>
+      <map:parameter name="link" value="{1}"/>
+    </map:transform>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="events/index-topics.html">
+	  <!--<map:generate src="cocoon:/get-event-from-diary.xq?type={1}"/>-->
+	  <map:generate src="xml/static/topics.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="events/index-*.html">
+	  <!--<map:generate src="cocoon:/get-event-from-diary.xq?type={1}"/>-->
+	  <map:generate src="xml/static/events-{1}.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <!--
+  <map:match pattern="meetings/index-c.html">
+<map:generate src="xml/meetings-c.html"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+-->
+  <map:match pattern="meetings/index-*.html">
+	  <!-- <map:generate src="cocoon:/get-meeting-from-diary.xq?type={1}"/>-->
+	  <map:generate src="xml/static/meetings-{1}.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="meals/index-*.html">
+	  <!-- <map:generate src="cocoon:/get-dMeal-from-diary.xq?type={1}"/> -->
+	  <map:generate src="xml/static/meals-{1}.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="reading/index-*.html">
+	  <!--    <map:generate src="cocoon:/get-texts-from-diary.xq?type={1}"/>-->
+	  <map:generate src="xml/static/reading-{1}.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <!--<map:match pattern="writing/index-all.html">
+<map:generate src="cocoon:/get-all-dWrote-from-diary.xq?type={1}"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+-->
+
+  <map:match pattern="writing/index-*.html">
+	  <!--    <map:generate src="cocoon:/get-dWrote-from-diary.xq?type={1}"/>-->
+<map:generate src="xml/static/writing-{1}.xml"/>
+    <map:transform src="xslt/table2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="events/*.html">
+    <map:generate src="cocoon:/get-event.xq?id={1}"/>
+    <map:transform src="xslt/events2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="bibl/*.html">
+    <map:generate src="cocoon:/get-bibl.xq?id={1}"/>
+    <map:transform src="xslt/bibl2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize encoding="UTF-8" type="xhtml"/>
+  </map:match>
+
+  <map:match pattern="bibl/*.xml">
+    <map:generate src="cocoon:/get-bibl.xq?id={1}"/>
+    <map:serialize encoding="UTF-8" type="xml"/>
+  </map:match>
+  
+  
+  
+  
+  
+<!--  
+  <map:match pattern="meetings/*">
+    <map:read mime-type="text/html" src="{1}-Meetings.html"/>
+    <map:serialize type="xhtml"/>
+  </map:match>
+-->      
+      <map:match pattern="index.xml">
+        <map:generate src="xml/index.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+        <map:serialize encoding="UTF-8" type="xhtml"/>
+      </map:match>
+      
+      
+      <map:match pattern="folio">
+        <map:redirect-to uri="cocoon:/i/index.xml"/>
+      </map:match>
+      
+      <map:match pattern="folio/">
+        <map:redirect-to uri="cocoon:/i/index.xml"/>
+      </map:match>
+      
+      <map:match pattern="folio/index.html">
+        <map:redirect-to uri="cocoon:/i/index.xml"/>
+      </map:match>
+      
+      <map:match pattern="folio/index.xml">
+        <map:redirect-to uri="cocoon:/i/index.xml"/>
+      </map:match>
+      
+      
+      <map:match pattern="**/index.html">
+        <map:generate src="xml/{1}.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+        <map:serialize type="xhtml" encoding="UTF-8"/>
+      </map:match>
+
+      <map:match pattern="index.html">
+        <map:generate src="xml/index.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+        <map:serialize type="xhtml" encoding="UTF-8"/>
+      </map:match>
+
+      <map:match pattern="index-tmp.html">
+        <map:generate src="xml/index-tmp.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+        <map:serialize type="xhtml" encoding="UTF-8"/>
+      </map:match>
+      
+      <map:match pattern="splash*.html">
+        <map:generate src="xml/splash{1}.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+        <map:serialize type="xhtml" encoding="UTF-8"/>
+      </map:match>
+      
+      
+      
+  <map:match pattern="project-bibl.html">
+    <map:generate src="xml/project-bibl.xml"/>
+    <map:transform type="xinclude"/>
+    <map:transform src="xslt/project-bibl2HTML.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+    <map:serialize type="xhtml"/>
+  </map:match>
+
+     
+      <map:match pattern="*.html">
+        <map:generate src="xml/{1}.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+
+
+      <map:match pattern="foofoo.html">
+        <map:generate src="xml/index.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+<map:match pattern="folio/test.*">
+        <map:read mime-type="text/html" src="images/tiles/e.{1}.html"/>
+</map:match>
+ 
+ <!--
+      <map:match pattern="folio/e.*">
+        <map:read mime-type="text/html" src="images/tiles/e.{1}.html"/>
+      </map:match>
+      
+      <map:match pattern="folio/e.*-tiles/*.jpg">
+        <map:read mime-type="image/jpg" src="images/tiles/e.{1}-tiles/{2}.jpg"/>
+      </map:match>
+      
+      -->
+ 
+      
+      <map:match pattern="i/index.xml">
+        <map:generate src="xml/imageList.xml"/>
+        <map:transform type="xinclude"/>
+        <map:transform src="xslt/site.xsl"/>
+    <map:transform src="xslt/add-menu.xsl"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+      
+      <map:match pattern="folio/*">
+        <map:generate src="xml/imageList.xml"/>
+        <map:transform src="xslt/displayImage.xsl">
+       <map:parameter name="use-request-parameters" value="true"/>
+          <map:parameter name="image" value="{1}"/>
+          </map:transform>
+
+    <map:transform src="xslt/add-menu.xsl"/>
+        <map:serialize encoding="UTF-8" type="xhtml"/> 
+      </map:match>
+      
+      
+      
+      
+      <map:match pattern="">
+        <map:redirect-to uri="cocoon:/index.html"/>
+      </map:match>
+      
+      <map:match pattern="**/">
+        <map:redirect-to uri="cocoon:/{1}/index.html"/>
+      </map:match>
+      
+      <map:match pattern="**/index.xml">
+        <map:redirect-to uri="cocoon:/{1}/index.html"/>
+      </map:match>
+      
+      
+      <!--
+      <map:match pattern="tag.xq">
+	<map:select type="request">
+	  <map:parameter name="parameter-name" value="style"/>
+	  <map:when test="tei">
+	    <map:generate src="tag.xq" type="xquery"/>
+	    <map:serialize encoding="UTF-8" type="xml"/> 
+	  </map:when>
+	  <map:otherwise>
+	    <map:generate src="tag.xq" type="xquery"/>
+	    <map:transform type="xinclude"/>
+             <map:transform 
+		src="file:///usr/share/xml/tei/stylesheet/teic/odd2htmlfragment.xsl">
+ 		<map:parameter name="use-request-parameters" value="true"/>
+		<map:parameter name="TEISERVER" value="http://tei.oucs.ox.ac.uk/Query/"/>
+	    </map:transform>
+	    <map:serialize encoding="UTF-8" type="html"/> 
+	  </map:otherwise>
+	</map:select>
+      </map:match> 
+
+     <map:match pattern="class.xq">
+	<map:generate src="class.xq" type="xquery"/>
+	<map:transform type="xinclude"/>
+	<map:transform 
+	 src="file:///usr/share/xml/tei/stylesheet/teic/odd2htmlfragment.xsl"/>
+	<map:serialize encoding="UTF-8" type="html"/> 
+      </map:match> -->
+<!--
+      <map:match pattern="HOL01-meetings.js">
+	<map:generate src="xquery/HOL01-meetings-json.xq" type="xquery"/>
+	<map:transform type="encodeURL"/>
+	<map:serialize encoding="UTF-8" type="text"/>
+      </map:match>
+-->
+      <map:match pattern="*.xq">
+	<map:generate src="xquery/{1}.xq" type="xquery"/>
+       <!-- 
+	<map:transform type="xinclude"/>
+<map:transform 
+	 src="xslt/site.xsl"/>
+	<map:transform type="encodeURL"/>-->
+	<map:serialize encoding="UTF-8" type="xml"/>
+      </map:match>
+
+      <map:match pattern="*.json">
+	<map:generate src="xquery/{1}.xq" type="xquery"/>
+       <!-- 
+	<map:transform type="xinclude"/>
+<map:transform 
+	 src="xslt/site.xsl"/>
+	<map:transform type="encodeURL"/>-->
+	<map:serialize encoding="UTF-8" type="text"/>
+      </map:match>
+
+      <map:match pattern="development-bundle/**.js">
+        <map:read mime-type="text/javascript" src="style/development-bundle/{1}.js"/>
+      </map:match>
+      
+      <map:match pattern="js/**.js">
+        <map:read mime-type="text/javascript" src="style/js/{1}.js"/>
+      </map:match>
+      
+      <map:match pattern="**.js">
+        <map:read mime-type="text/javascript" src="style/js/{1}.js"/>
+      </map:match>
+
+      <!--
+      <map:match pattern="flot-test.html"><map:read mime-type="text/html" src="file:///home/james/Public/flot/test.html"/></map:match>
+     --> 
+      <map:match pattern="dataTables/images/**.jpg">
+	      <map:read mime-type="image/jpg" src="style/js/dataTables-1.6/media/images/{1}.jpg"/>
+      </map:match>
+      
+      <map:match pattern="dataTables/images/**.png">
+	      <map:read mime-type="image/png" src="style/js/dataTables-1.6/media/images/{1}.png"/>
+      </map:match>
+      
+  <map:match pattern="js/*.png">
+    <map:read mime-type="image/png" src="style/images/{1}.png"/>
+  </map:match>
+      
+      <map:match pattern="dataTables/css/**.css">
+	      <map:read mime-type="text/css" src="style/js/dataTables-1.6/media/css/{1}.css"/>
+      </map:match>
+      
+      <map:match pattern="dataTables/js/**.js">
+	      <map:read mime-type="text/javascript" src="style/js/dataTables-1.6/media/js/{1}.js"/>
+      </map:match>
+
+      <map:match pattern="js/**.js">
+        <map:read mime-type="text/javascript" src="style/js/{1}.js"/>
+      </map:match>
+      
+      <map:match pattern="**.js">
+        <map:read mime-type="text/javascript" src="style/js/{1}.js"/>
+      </map:match>
+      
+<map:match pattern="robots.txt">
+ <map:read mime-type="text/plain" src="xml/robots.txt"/>
+</map:match>
+
+<map:match pattern="logo-test.html">
+ <map:read mime-type="text/html" src="logo-test.html"/>
+</map:match>
+
+<map:match pattern="google75d9de3bdeea07ef.html">
+ <map:read mime-type="text/html" src="xml/google75d9de3bdeea07ef.html"/>
+</map:match>
+
+<map:match pattern="nav.html">
+ <map:read mime-type="text/html" src="xml/nav.html"/>
+</map:match>
+
+<map:match pattern="calendar/*.html">
+        <map:read mime-type="text/html" src="xml/calendar/{1}.html"/>
+</map:match>
+
+ <map:match pattern="css/**.css">
+        <map:read mime-type="text/css" src="style/css/{1}.css"/>
+      </map:match>
+
+
+      <map:match pattern="css/**.css">
+        <map:read mime-type="text/css" src="style/css/{1}.css"/>
+      </map:match>
+
+      <map:match pattern="**.css">
+        <map:read mime-type="text/css" src="style/css/{1}.css"/>
+      </map:match>
+
+      <map:match pattern="development-bundle/**.js">
+        <map:read mime-type="text/javascript" src="style/development-bundle/{1}.js"/>
+      </map:match>
+
+      <map:match pattern="js/**.js">
+        <map:read mime-type="text/javascript" src="style/js/{1}.js"/>
+      </map:match>
+
+      <map:match pattern="**.js">
+        <map:read mime-type="text/javascript" src="style/js/{1}.js"/>
+      </map:match>
+
+    </map:pipeline>
+
+<!-- PIPELINE NONCACHING-->
+
+<map:pipeline type="noncaching">
+<map:match pattern="projectsite/**.csv"><map:read mime-type="text/csv" src="/home/godwin/svn/{1}.csv"/></map:match>
+  
+  <!-- test -->
+<map:match pattern="flot/**.html"><map:read mime-type="text/html" src="file:///home/james/Public/flot/{1}.html"/></map:match>
+<map:match pattern="flot/**.js"><map:read mime-type="text/javascript" src="file:///home/james/Public/flot/{1}.js"/></map:match>
+<map:match pattern="flot/**.json"><map:read mime-type="text/javascript" src="file:///home/james/Public/flot/{1}.json"/></map:match>
+<map:match pattern="flot/**.css"><map:read mime-type="text/css" src="file:///home/james/Public/flot/{1}.css"/></map:match>
+
+<map:match pattern="godwindiary.zip">
+ <map:read mime-type="application/zip" src="xml/godwindiary.zip"/>
+</map:match>
+  
+<map:match pattern="godwinfiles.zip">
+ <map:read mime-type="application/zip" src="godwinfiles.zip"/>
+</map:match>
+  
+  
+<map:match pattern="calendar/*.html">
+	<map:read mime-type="text/html" src="xml/calendar/{1}.html"/>
+</map:match>
+  
+<map:match pattern="jquery-test.html">
+ <map:read mime-type="text/html" src="jquery-test.html"/>
+</map:match>
+  
+<map:match pattern="folioimages/*.jpg">
+<map:read mime-type="image/jpg" src="images/jpg/med/shrunk-{1}-med.jpg"/>
+</map:match>
+
+      <map:match pattern="images/jpg/hi/*.html">
+        <map:read mime-type="text/html" src="images/jpg/hi/{1}.html"/>
+      </map:match>
+ 
+      <map:match pattern="test/*.html">
+        <map:read mime-type="text/html" src="xml/{1}.html"/>
+      </map:match>
+ 
+      <map:match pattern="i/e.*-hi-tiles/*.jpg">
+        <map:read mime-type="image/jpg" src="images/jpg/hi/e.{1}-hi-tiles/{2}.jpg"/>
+      </map:match>
+      
+      
+      <map:match pattern="i/e.*-thumb.jpg">
+        <map:read mime-type="image/jpg" src="images/jpg/thumb/e.{1}-thumb.jpg"/>
+      </map:match>
+      
+      <map:match pattern="i/e.*.jpg">
+        <map:read mime-type="image/jpg" src="images/jpg/med/e.{1}-med.jpg"/>
+      </map:match>
+      
+      
+      <map:match pattern="i/">
+        <map:redirect-to uri="cocoon:/i/index.xml"/>
+      </map:match>
+      
+      
+      <map:match pattern="i/index.html">
+        <map:redirect-to uri="cocoon:/i/index.xml"/>
+      </map:match>
+      
+
+
+      <map:match pattern="folio/e.*-tiles/*.jpg">
+        <map:read mime-type="image/jpg" src="images/tiles/e.{1}-tiles/{2}.jpg"/>
+      </map:match>
+      
+      
+      
+      <map:match pattern="css/**.png">
+        <map:read mime-type="image/png" src="style/css/{1}.png"/>
+      </map:match>
+      
+      <map:match pattern="development-bundle/**.png">
+        <map:read mime-type="image/png" src="style/development-bundle/{1}.png"/>
+      </map:match>
+      
+      <map:match pattern="images/*.png">
+        <map:read mime-type="image/png" src="style/images/{1}.png"/>
+      </map:match>
+      
+      <map:match pattern="images/*.gif">
+        <map:read mime-type="image/gif" src="style/images/{1}.gif"/>
+      </map:match>
+      
+      <map:match pattern="godwin.pdf">
+        <map:read mime-type="application/pdf" src="xml/godwin.pdf"/>
+      </map:match>
+      
+      <map:match pattern="**.txt">
+        <map:read mime-type="text/plain" src="{1}.txt"/>
+      </map:match>
+      
+      
+      <map:match pattern="images/*.jpg">
+	      <map:read mime-type="image/jpg" src="style/images/{1}.jpg"/>
+      </map:match>
+      
+      
+      
+</map:pipeline>
+
+  </map:pipelines>	
+  
+</map:sitemap>
