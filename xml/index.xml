@@ -1,28 +1,178 @@
-<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
-<TEI
-   xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
-    <fileDesc>
-      <titleStmt>
-        <title rend="center">William Godwin's Diary</title>
-      </titleStmt>
-      <publicationStmt>
-        <p>Published by the William Godwin's Diary project, UIniversity of Oxford</p>
-      </publicationStmt>
-      <sourceDesc>
-        <p>William Godwin's Diary</p>
-      </sourceDesc>
-    </fileDesc>
-  </teiHeader>
-  <text>
-    <body rend="splashPage">
-<div rend="splashPage">
-
-      <p rend="center">
-        <ref target="/index2.html"><figure rend="splashPage"><graphic rend="splashPage" url="/images/godwin-logo-med-white.png"/><figDesc>Click Image To Enter Site!</figDesc></figure></ref>
-      </p>
-        
-</div>
-    </body>
-  </text>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--WARNING: THIS IS NOT AN ORIGINAL FILE IT IS
+        GENERATED FROM A DIFFERENT TEI XML FILE , DO NOT EDIT! --><TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Godwin Diaries</title>
+            <author>William Godwin</author>
+            <principal>Mark Philp</principal>
+            <funder>Leverhulme Foundation and the John Fell OUP Research Fund</funder>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Published by the Godwin Diaries Project, University of Oxford</authority>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Transcribed from William Godwin's diaries</p>
+         </sourceDesc>
+      </fileDesc>
+      <revisionDesc>
+         <change when="2012-05-27T05:16:10.49+01:00">
+            <persName>Dr James Cummings</persName> generated this
+              file.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <list type="unordered">
+            <item>
+               <ref target="1788.xml">1788</ref>
+            </item>
+            <item>
+               <ref target="1789.xml">1789</ref>
+            </item>
+            <item>
+               <ref target="1790.xml">1790</ref>
+            </item>
+            <item>
+               <ref target="1791.xml">1791</ref>
+            </item>
+            <item>
+               <ref target="1792.xml">1792</ref>
+            </item>
+            <item>
+               <ref target="1793.xml">1793</ref>
+            </item>
+            <item>
+               <ref target="1794.xml">1794</ref>
+            </item>
+            <item>
+               <ref target="1795.xml">1795</ref>
+            </item>
+            <item>
+               <ref target="1796.xml">1796</ref>
+            </item>
+            <item>
+               <ref target="1797.xml">1797</ref>
+            </item>
+            <item>
+               <ref target="1798.xml">1798</ref>
+            </item>
+            <item>
+               <ref target="1799.xml">1799</ref>
+            </item>
+            <item>
+               <ref target="1800.xml">1800</ref>
+            </item>
+            <item>
+               <ref target="1801.xml">1801</ref>
+            </item>
+            <item>
+               <ref target="1802.xml">1802</ref>
+            </item>
+            <item>
+               <ref target="1803.xml">1803</ref>
+            </item>
+            <item>
+               <ref target="1804.xml">1804</ref>
+            </item>
+            <item>
+               <ref target="1805.xml">1805</ref>
+            </item>
+            <item>
+               <ref target="1806.xml">1806</ref>
+            </item>
+            <item>
+               <ref target="1807.xml">1807</ref>
+            </item>
+            <item>
+               <ref target="1808.xml">1808</ref>
+            </item>
+            <item>
+               <ref target="1809.xml">1809</ref>
+            </item>
+            <item>
+               <ref target="1810.xml">1810</ref>
+            </item>
+            <item>
+               <ref target="1811.xml">1811</ref>
+            </item>
+            <item>
+               <ref target="1812.xml">1812</ref>
+            </item>
+            <item>
+               <ref target="1813.xml">1813</ref>
+            </item>
+            <item>
+               <ref target="1814.xml">1814</ref>
+            </item>
+            <item>
+               <ref target="1815.xml">1815</ref>
+            </item>
+            <item>
+               <ref target="1816.xml">1816</ref>
+            </item>
+            <item>
+               <ref target="1817.xml">1817</ref>
+            </item>
+            <item>
+               <ref target="1818.xml">1818</ref>
+            </item>
+            <item>
+               <ref target="1819.xml">1819</ref>
+            </item>
+            <item>
+               <ref target="1820.xml">1820</ref>
+            </item>
+            <item>
+               <ref target="1821.xml">1821</ref>
+            </item>
+            <item>
+               <ref target="1822.xml">1822</ref>
+            </item>
+            <item>
+               <ref target="1823.xml">1823</ref>
+            </item>
+            <item>
+               <ref target="1824.xml">1824</ref>
+            </item>
+            <item>
+               <ref target="1825.xml">1825</ref>
+            </item>
+            <item>
+               <ref target="1826.xml">1826</ref>
+            </item>
+            <item>
+               <ref target="1827.xml">1827</ref>
+            </item>
+            <item>
+               <ref target="1828.xml">1828</ref>
+            </item>
+            <item>
+               <ref target="1829.xml">1829</ref>
+            </item>
+            <item>
+               <ref target="1830.xml">1830</ref>
+            </item>
+            <item>
+               <ref target="1831.xml">1831</ref>
+            </item>
+            <item>
+               <ref target="1832.xml">1832</ref>
+            </item>
+            <item>
+               <ref target="1833.xml">1833</ref>
+            </item>
+            <item>
+               <ref target="1834.xml">1834</ref>
+            </item>
+            <item>
+               <ref target="1835.xml">1835</ref>
+            </item>
+            <item>
+               <ref target="1836.xml">1836</ref>
+            </item>
+         </list>
+      </body>
+   </text>
 </TEI>
